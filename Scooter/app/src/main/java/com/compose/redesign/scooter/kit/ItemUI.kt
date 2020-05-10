@@ -50,12 +50,12 @@ fun RecommendationScroller() {
 fun StoreItem(item: PricedItem) {
     val image = imageResource(id = item.image)
     Card(
-        modifier = Modifier.width(160.dp),
+        modifier = Modifier.width(160.dp).preferredHeight(219.dp),
         shape = RoundedCornerShape(6.dp)
     ) {
-        Column {
+        Box(modifier = Modifier.fillMaxSize()) {
             Box(
-                modifier = Modifier.height(130.dp),
+                modifier = Modifier.preferredHeight(130.dp),
                 gravity = ContentGravity.TopCenter
             ) {
                 Image(
@@ -63,19 +63,47 @@ fun StoreItem(item: PricedItem) {
                     asset = image
                 )
             }
-
-            Text(text = "249 Р")
-
-            Box(
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 12.dp)
-                    .height(40.dp).preferredWidth(128.dp),
-                shape = RoundedCornerShape(6.dp),
-                border = Border(1.dp, colorAccent),
-                gravity = ContentGravity.Center
-            ) {
-                Text("В корзину")
+            Column(modifier = Modifier.padding(top = 104.dp)) {
+                Box {
+                    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
+                        Box(
+                            shape = RoundedCornerShape(6.dp),
+                            paddingTop = 4.dp,
+                            paddingBottom = 4.dp,
+                            paddingStart = 8.dp,
+                            paddingEnd = 8.dp,
+                            backgroundColor = colorAccent
+                        ) {
+                            Text(
+                                text = String.format("%+.0f%%", item.saleValue * 100),
+                                style = textStyleAdditionalSmallWhite
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Row(verticalGravity = Alignment.Bottom) {
+                            Text(
+                                text = String.format("%.0fр", item.price),
+                                style = textStyleSecondaryHeaderAccent
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = String.format("%.0fр", item.itemPrice),
+                                style = textStyleAdditionalCrossed
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Box(
+                            modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 12.dp)
+                                .height(40.dp).preferredWidth(128.dp),
+                            shape = RoundedCornerShape(6.dp),
+                            border = Border(1.dp, colorAccent),
+                            gravity = ContentGravity.Center
+                        ) {
+                            Text("В корзину", style = textStyleAccent)
+                        }
+                    }
+                }
             }
-
         }
     }
 }
@@ -103,7 +131,8 @@ fun PromoItem(item: PromotedItem) {
                     bottom = 12.dp
                 )
             ) {
-                Text(modifier = Modifier.weight(1f),
+                Text(
+                    modifier = Modifier.weight(1f),
                     text = item.title,
                     style = textStyleSecondaryHeader,
                     maxLines = 3,
@@ -126,10 +155,10 @@ fun PromoItem(item: PromotedItem) {
 }
 
 val list = listOf<PricedItem>(
-    PricedItem(0, .23f, 100f, R.drawable.akbar),
-    PricedItem(1, .07f, 100f, R.drawable.j7),
-    PricedItem(2, .15f, 100f, R.drawable.akbar),
-    PricedItem(3, .50f, 100f, R.drawable.j7)
+    PricedItem(0, -.23f, 100f, R.drawable.akbar),
+    PricedItem(1, -.07f, 100f, R.drawable.j7),
+    PricedItem(2, -.15f, 100f, R.drawable.akbar),
+    PricedItem(3, -.50f, 100f, R.drawable.j7)
 )
 
 val colorFoc = Color(0.988f, 0.961f, 0.937f)

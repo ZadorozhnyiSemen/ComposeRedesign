@@ -11,6 +11,7 @@ import androidx.ui.material.Surface
 import androidx.ui.res.vectorResource
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.*
+import androidx.ui.text.style.TextDecoration
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 import com.compose.redesign.scooter.R
@@ -81,6 +82,14 @@ val textStyleAdditional = TextStyle(
     fontStyle = FontStyle.Normal
 )
 
+val textStyleAdditionalCrossed = TextStyle(
+    color = textSecondary,
+    fontFamily = appFontFamily,
+    fontWeight = FontWeight.W500,
+    fontStyle = FontStyle.Normal,
+    textDecoration = TextDecoration.LineThrough
+)
+
 val textStyleAdditionalLight = TextStyle(
     color = textSecondaryWithOpacity,
     fontFamily = appFontFamily,
@@ -104,6 +113,15 @@ val textStyleAdditionalSmall = TextStyle(
     fontStyle = FontStyle.Normal
 )
 
+val textStyleAdditionalSmallWhite = TextStyle(
+    color = colorWhite,
+    fontFamily = appFontFamily,
+    fontSize = 12.sp,
+    fontWeight = FontWeight.W500,
+    fontStyle = FontStyle.Normal,
+    letterSpacing = 1.sp
+)
+
 val textStyleHeader = TextStyle(
     color = textPrimary,
     fontFamily = appFontFamily,
@@ -116,7 +134,14 @@ val textStyleSecondaryHeader = TextStyle(
     color = textPrimary,
     fontFamily = appFontFamily,
     fontSize = 16.sp,
-    letterSpacing = 1.sp,
+    fontWeight = FontWeight.W600,
+    fontStyle = FontStyle.Normal
+)
+
+val textStyleSecondaryHeaderAccent = TextStyle(
+    color = textAccent,
+    fontFamily = appFontFamily,
+    fontSize = 16.sp,
     fontWeight = FontWeight.W600,
     fontStyle = FontStyle.Normal
 )
