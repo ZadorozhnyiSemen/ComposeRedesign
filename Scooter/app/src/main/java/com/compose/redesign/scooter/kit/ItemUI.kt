@@ -36,7 +36,7 @@ fun SaleScroller() {
 @Preview
 fun RecommendationScroller() {
     HorizontalScroller {
-        Row(modifier = Modifier.padding(start = 8.dp, end = 8.dp)) {
+        Row(modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 4.dp, bottom = 4.dp)) {
             for (item in recommendationList) {
                 Spacer(modifier = Modifier.width(8.dp))
                 PromoItem(item)
