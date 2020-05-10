@@ -138,15 +138,19 @@ fun PromoItem(item: PromotedItem) {
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
-                Box(
+                Card(
                     shape = RoundedCornerShape(6.dp),
-                    paddingTop = 4.dp,
-                    paddingBottom = 4.dp,
-                    paddingStart = 8.dp,
-                    paddingEnd = 8.dp,
-                    backgroundColor = colorWhite
+                    color = colorWhite
                 ) {
-                    Text(text = item.category, style = textStyleAdditionalSmall)
+                    Text(
+                        modifier = Modifier.padding(
+                            bottom = 4.dp,
+                            top = 4.dp,
+                            start = 8.dp,
+                            end = 8.dp
+                        ),
+                        text = item.category, style = textStyleAdditionalSmall
+                    )
                 }
             }
         }
