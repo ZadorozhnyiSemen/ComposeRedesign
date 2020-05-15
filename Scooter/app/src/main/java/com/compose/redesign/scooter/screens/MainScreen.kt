@@ -52,7 +52,7 @@ fun MainScreen() {
                     Box(
                         Modifier.wrapContentSize(Alignment.Center), paddingStart = 16.dp
                     ) {
-                        Text(text = "Рекомендации", style = textStyleAdditional)
+                        Text(text = "Новинки", style = textStyleAdditional)
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     RecommendationScroller()
