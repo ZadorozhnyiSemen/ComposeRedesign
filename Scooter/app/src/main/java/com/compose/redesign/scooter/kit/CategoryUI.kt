@@ -24,8 +24,8 @@ fun VerticalGrid(items: List<PricedItem>) {
     Column {
         for (i in items.indices step 2) {
             Row {
-                StoreItem(item = items[i])
-                if (i + 1 != items.size) StoreItem(item = items[i + 1])
+                StoreItem(item = items[i], showDescription = true)
+                if (i + 1 != items.size) StoreItem(item = items[i + 1], showDescription = true)
             }
         }
     }
@@ -36,7 +36,7 @@ fun HorizontalGrid(items: List<PricedItem>) {
     HorizontalScroller {
         Row {
             items.forEach {
-                StoreItem(item = it)
+                StoreItem(item = it, showDescription = true)
             }
         }
     }

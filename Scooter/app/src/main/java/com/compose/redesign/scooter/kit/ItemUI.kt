@@ -47,11 +47,12 @@ fun RecommendationScroller() {
 }
 
 @Composable
-fun StoreItem(item: PricedItem) {
+fun StoreItem(item: PricedItem, showDescription: Boolean = false) {
     val image = imageResource(id = item.image)
     Card(
         modifier = Modifier.width(160.dp).preferredHeight(219.dp),
-        shape = RoundedCornerShape(6.dp)
+        shape = RoundedCornerShape(6.dp),
+        elevation = 0.dp
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Box(
@@ -66,30 +67,39 @@ fun StoreItem(item: PricedItem) {
             Column(modifier = Modifier.padding(top = 104.dp)) {
                 Box {
                     Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
-                        Box(
-                            shape = RoundedCornerShape(6.dp),
-                            paddingTop = 4.dp,
-                            paddingBottom = 4.dp,
-                            paddingStart = 8.dp,
-                            paddingEnd = 8.dp,
-                            backgroundColor = colorAccent
-                        ) {
-                            Text(
-                                text = String.format("%+.0f%%", item.saleValue * 100),
-                                style = textStyleAdditionalSmallWhite
-                            )
+                        if (item.onSale) {
+                            Box(
+                                shape = RoundedCornerShape(6.dp),
+                                paddingTop = 4.dp,
+                                paddingBottom = 4.dp,
+                                paddingStart = 8.dp,
+                                paddingEnd = 8.dp,
+                                backgroundColor = colorAccent
+                            ) {
+                                Text(
+                                    text = String.format("%+.0f%%", item.saleValue * 100),
+                                    style = textStyleAdditionalSmallWhite
+                                )
+                            }
+                        } else {
+                            Spacer(modifier = Modifier.weight(1f))
                         }
+
                         Spacer(modifier = Modifier.height(8.dp))
                         Row(verticalGravity = Alignment.Bottom) {
+                            val priceStyle =
+                                if (item.onSale) textStyleSecondaryHeaderAccent else textStyleSecondaryHeader
                             Text(
                                 text = String.format("%.0fр", item.price),
-                                style = textStyleSecondaryHeaderAccent
+                                style = priceStyle
                             )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = String.format("%.0fр", item.itemPrice),
-                                style = textStyleAdditionalCrossed
-                            )
+                            if (item.onSale) {
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = String.format("%.0fр", item.itemPrice),
+                                    style = textStyleAdditionalCrossed
+                                )
+                            }
                         }
                         Spacer(modifier = Modifier.height(8.dp))
                         Box(
@@ -160,7 +170,7 @@ fun PromoItem(item: PromotedItem) {
 
 val list = listOf<PricedItem>(
     PricedItem(0, -.23f, 100f, R.drawable.akbar),
-    PricedItem(1, -.07f, 100f, R.drawable.j7),
+    PricedItem(1, .00f, 100f, R.drawable.j7),
     PricedItem(2, -.15f, 100f, R.drawable.akbar),
     PricedItem(3, -.50f, 100f, R.drawable.j7)
 )

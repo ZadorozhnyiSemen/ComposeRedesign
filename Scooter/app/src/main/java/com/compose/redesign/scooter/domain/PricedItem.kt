@@ -6,9 +6,10 @@ data class PricedItem(
     val id: Int,
     val saleValue: Float,
     val itemPrice: Float,
-    @IdRes val image: Int
+    @IdRes val image: Int,
+    val description: String = ""
 ) {
-    private val onSale: Boolean
+    val onSale: Boolean
         get() = saleValue != 0f
     val price: Float
         get() = if (onSale) itemPrice + itemPrice * saleValue else itemPrice

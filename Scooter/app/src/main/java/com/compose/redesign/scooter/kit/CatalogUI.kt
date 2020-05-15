@@ -116,7 +116,13 @@ val shortCuts = listOf(
     ShortCutItem(2, "Развлечения", "Настолки, журналы, техника", R.drawable.ic_sc_games)
 )
 
-val pricedItem = PricedItem(0, if (Random.nextBoolean()) 0.0f else 0.23f, 100f, R.drawable.j7)
+val pricedItem = PricedItem(
+    0,
+    if (Random.nextBoolean()) 0.0f else -0.23f,
+    100f,
+    R.drawable.j7,
+    "Виноград без косточек, 500 г"
+)
 
 val items1 = listOf(
     CategoryItem(0, "Овощи и зелень", 10, List(10) { pricedItem }),

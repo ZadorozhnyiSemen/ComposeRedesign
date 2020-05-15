@@ -92,8 +92,7 @@ val textStyleSecondaryHeader = TextStyle(
     fontFamily = appFontFamily,
     fontSize = 16.sp,
     fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal,
-    textAlign = TextAlign.Center
+    fontStyle = FontStyle.Normal
 )
 
 val textStyleSecondaryHeaderAccent = TextStyle(
