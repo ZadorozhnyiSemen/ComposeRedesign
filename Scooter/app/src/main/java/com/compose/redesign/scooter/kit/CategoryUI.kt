@@ -25,7 +25,7 @@ fun VerticalGrid(items: List<PricedItem>) {
         for (i in items.indices step 2) {
             Row {
                 StoreItem(item = items[i])
-                StoreItem(item = items[i + 1])
+                if (i + 1 != items.size) StoreItem(item = items[i + 1])
             }
         }
     }

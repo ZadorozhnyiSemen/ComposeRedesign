@@ -2,11 +2,9 @@ package com.compose.redesign.scooter.ui
 
 import androidx.compose.Composable
 import androidx.ui.core.Modifier
-import androidx.ui.foundation.Box
-import androidx.ui.foundation.ContentGravity
 import androidx.ui.foundation.Icon
 import androidx.ui.foundation.Text
-import androidx.ui.layout.fillMaxSize
+import androidx.ui.layout.Column
 import androidx.ui.material.BottomNavigation
 import androidx.ui.material.BottomNavigationItem
 import androidx.ui.material.MaterialTheme
@@ -39,8 +37,8 @@ fun ScooterApp(container: AppContainer) {
 private fun AppContent(
     itemsRepository: ItemsRepository
 ) {
-    // Crossfade(current = AppStatus.currentScreen) { screen ->
-        Surface(color = colorBackground) {
+    Column {
+        Surface(modifier = Modifier.weight(1f), color = colorBackground) {
             when (val screen = AppStatus.currentScreen) {
                 Screen.Home -> MainScreen()
                 Screen.Catalog -> CatalogScreen()
@@ -50,9 +48,7 @@ private fun AppContent(
                 is Screen.Category -> CategoryScreen(categoryId = screen.categoryId)
             }
         }
-    // }
 
-    Box(modifier = Modifier.fillMaxSize(), gravity = ContentGravity.BottomCenter) {
         BottomNavigation(backgroundColor = colorWhite, contentColor = colorAccent) {
             MenuItem.values().forEachIndexed { index, item ->
                 BottomNavigationItem(
