@@ -45,7 +45,7 @@ fun MainScreen() {
                         Modifier.wrapContentSize(Alignment.Center),
                         paddingStart = 16.dp
                     ) {
-                        Text(text = "Каталог", style = textStyleHeader)
+                        Text(text = "Самокат", style = textStyleHeader)
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     SearchBar()
