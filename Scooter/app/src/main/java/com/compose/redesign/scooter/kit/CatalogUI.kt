@@ -84,7 +84,7 @@ fun CatalogBlock(modifier: Modifier) {
 fun SubCatalog(category: Category) {
     Column {
         Text(text = category.title, style = textStyleSecondaryHeader)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         category.items.forEach {
             CategoryDescriptor(category = it)
         }

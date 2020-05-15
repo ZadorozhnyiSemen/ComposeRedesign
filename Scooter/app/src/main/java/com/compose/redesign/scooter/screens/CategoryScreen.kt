@@ -30,7 +30,8 @@ fun CategoryScreen(categoryId: Int) {
     val item = categories.flatMap { it.items }.find { it.id == categoryId }
         ?: throw IllegalArgumentException()
     Scaffold {
-        Surface {
+
+    Surface {
             Column {
                 TopAppBar(
                     backgroundColor = colorWhite,
