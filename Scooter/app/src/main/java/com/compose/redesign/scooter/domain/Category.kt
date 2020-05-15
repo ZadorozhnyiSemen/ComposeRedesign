@@ -9,5 +9,6 @@ data class Category(
 data class CategoryItem(
     val id: Int,
     val title: String,
-    val size: Int
+    val size: Int,
+    val items: List<PricedItem>
 )
