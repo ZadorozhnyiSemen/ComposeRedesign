@@ -36,11 +36,11 @@ fun ShortCutScroller() {
 fun ShortCut(item: ShortCutItem) {
     val icon = vectorResource(id = item.icon)
     Card(
-        modifier = Modifier.width(160.dp).preferredHeight(134.dp).ripple(),
+        modifier = Modifier.width(160.dp).preferredHeight(134.dp),
         shape = RoundedCornerShape(6.dp)
     ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().ripple(),
             gravity = Alignment.Center,
             paddingStart = 16.dp,
             paddingEnd = 16.dp,
