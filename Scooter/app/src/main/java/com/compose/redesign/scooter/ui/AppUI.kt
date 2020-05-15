@@ -23,6 +23,7 @@ import com.compose.redesign.scooter.data.AppContainer
 import com.compose.redesign.scooter.data.items.ItemsRepository
 import com.compose.redesign.scooter.screens.DummyScreen
 import com.compose.redesign.scooter.screens.MainScreen
+import com.compose.redesign.scooter.styles.*
 
 @Composable
 fun ScooterApp(container: AppContainer) {
