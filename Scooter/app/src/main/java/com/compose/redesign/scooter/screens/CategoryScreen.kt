@@ -7,7 +7,9 @@ import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.layout.*
+import androidx.ui.layout.Column
+import androidx.ui.layout.fillMaxHeight
+import androidx.ui.layout.padding
 import androidx.ui.material.Scaffold
 import androidx.ui.material.Surface
 import androidx.ui.material.TopAppBar
@@ -29,32 +31,30 @@ fun CategoryScreen(categoryId: Int) {
         ?: throw IllegalArgumentException()
     Scaffold {
         Surface {
-            VerticalScroller {
-                Column {
-                    TopAppBar(
-                        backgroundColor = colorWhite,
-                        modifier = Modifier.gravity(Alignment.CenterHorizontally)
+            Column {
+                TopAppBar(
+                    backgroundColor = colorWhite,
+                    modifier = Modifier.gravity(Alignment.CenterHorizontally)
+                ) {
+                    val backButton = vectorResource(id = R.drawable.ic_back_24)
+                    val search = vectorResource(id = R.drawable.ic_search_24)
+                    val sizeModifier = Modifier.fillMaxHeight().padding(16.dp)
+                    Clickable(
+                        onClick = { navigateTo(Screen.Catalog) },
+                        modifier = Modifier.ripple()
                     ) {
-                        val backButton = vectorResource(id = R.drawable.ic_back_24)
-                        val search = vectorResource(id = R.drawable.ic_search_24)
-                        val sizeModifier = Modifier.fillMaxHeight().padding(16.dp)
-                        Clickable(
-                            onClick = { navigateTo(Screen.Catalog) },
-                            modifier = Modifier.ripple()
-                        ) {
-                            Image(modifier = sizeModifier, asset = backButton)
-                        }
-
-                        Text(
-                            modifier = sizeModifier,
-                            text = item.title,
-                            style = textStyleSecondaryHeader
-                        )
-                        Image(modifier = sizeModifier, asset = search)
+                        Image(modifier = sizeModifier, asset = backButton)
                     }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    ItemFilter()
-                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        modifier = sizeModifier,
+                        text = item.title,
+                        style = textStyleSecondaryHeader
+                    )
+                    Image(modifier = sizeModifier, asset = search)
+                }
+                ItemFilter()
+                VerticalScroller {
                     GridItems(item.items)
                 }
             }

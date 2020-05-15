@@ -10,6 +10,7 @@ import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
+import androidx.ui.material.Surface
 import androidx.ui.res.vectorResource
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
@@ -22,21 +23,23 @@ import com.compose.redesign.scooter.styles.textStyleSBSmall
 @Composable
 @Preview
 fun ItemFilter() {
-    var selectedChip = state { 0 }
-    Row(
-        Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp),
-        verticalGravity = Alignment.CenterVertically
-    ) {
-        val filterIcon = vectorResource(id = R.drawable.ic_filter_24)
-        Clickable(onClick = { selectedChip.value = 0 }) {
-            Chip(text = "Все", active = selectedChip.value == 0)
+    val selectedChip = state { 0 }
+    Surface(elevation = 3.dp) {
+        Row(
+            Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 8.dp, bottom = 8.dp),
+            verticalGravity = Alignment.CenterVertically
+        ) {
+            val filterIcon = vectorResource(id = R.drawable.ic_filter_24)
+            Clickable(onClick = { selectedChip.value = 0 }) {
+                Chip(text = "Все", active = selectedChip.value == 0)
+            }
+            Spacer(modifier = Modifier.width(4.dp))
+            Clickable(onClick = { selectedChip.value = 1 }) {
+                Chip("Со скидкой", active = selectedChip.value == 1)
+            }
+            Spacer(modifier = Modifier.weight(1f))
+            Image(asset = filterIcon, modifier = Modifier.padding(8.dp))
         }
-        Spacer(modifier = Modifier.width(4.dp))
-        Clickable(onClick = { selectedChip.value = 1 }) {
-            Chip("Со скидкой", active = selectedChip.value == 1)
-        }
-        Spacer(modifier = Modifier.weight(1f))
-        Image(asset = filterIcon, modifier = Modifier.padding(8.dp))
     }
 }
 
