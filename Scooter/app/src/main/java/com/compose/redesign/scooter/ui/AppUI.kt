@@ -1,8 +1,6 @@
 package com.compose.redesign.scooter.ui
 
-import androidx.annotation.IdRes
 import androidx.compose.Composable
-import androidx.ui.animation.Crossfade
 import androidx.ui.core.Modifier
 import androidx.ui.foundation.Box
 import androidx.ui.foundation.ContentGravity
@@ -18,10 +16,10 @@ import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.sp
-import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.data.AppContainer
 import com.compose.redesign.scooter.data.items.ItemsRepository
 import com.compose.redesign.scooter.screens.CatalogScreen
+import com.compose.redesign.scooter.screens.CategoryScreen
 import com.compose.redesign.scooter.screens.DummyScreen
 import com.compose.redesign.scooter.screens.MainScreen
 import com.compose.redesign.scooter.styles.*
@@ -41,26 +39,27 @@ fun ScooterApp(container: AppContainer) {
 private fun AppContent(
     itemsRepository: ItemsRepository
 ) {
-    Crossfade(current = AppStatus.currentScreen) { screen ->
+    // Crossfade(current = AppStatus.currentScreen) { screen ->
         Surface(color = colorBackground) {
-            when (screen) {
-                NavigationItem.HOME -> MainScreen()
-                NavigationItem.CATALOG -> CatalogScreen()
-                NavigationItem.CART -> DummyScreen(screenName = screen.title)
-                NavigationItem.CHAT -> DummyScreen(screenName = screen.title)
-                NavigationItem.ACCOUNT -> DummyScreen(screenName = screen.title)
+            when (val screen = AppStatus.currentScreen) {
+                Screen.Home -> MainScreen()
+                Screen.Catalog -> CatalogScreen()
+                Screen.Cart -> DummyScreen(screenName = "Empty")
+                Screen.Chat -> DummyScreen(screenName = "Empty")
+                Screen.Account -> DummyScreen(screenName = "Empty")
+                is Screen.Category -> CategoryScreen(categoryId = screen.categoryId)
             }
         }
-    }
+    // }
 
     Box(modifier = Modifier.fillMaxSize(), gravity = ContentGravity.BottomCenter) {
         BottomNavigation(backgroundColor = colorWhite, contentColor = colorAccent) {
-            NavigationItem.values().forEachIndexed { index, item ->
+            MenuItem.values().forEachIndexed { index, item ->
                 BottomNavigationItem(
                     icon = { Icon(vectorResource(id = item.icon)) },
-                    selected = AppStatus.currentScreen.id == index,
+                    selected = AppStatus.currentScreen.indexFor() == index,
                     onSelected = {
-                        AppStatus.currentScreen = NavigationItem.values()[index]
+                        AppStatus.currentScreen = Screen.fromMenuItem(item)
                     },
                     text = {
                         Text(
@@ -80,16 +79,4 @@ private fun AppContent(
             }
         }
     }
-}
-
-enum class NavigationItem(
-    val id: Int,
-    val title: String,
-    @IdRes val icon: Int
-) {
-    HOME(0, "Акции", R.drawable.ic_nav_home),
-    CATALOG(1, "Каталог", R.drawable.ic_nav_catalog),
-    CART(2, "Корзина", R.drawable.ic_nav_cart),
-    CHAT(3, "Помощь", R.drawable.ic_nav_chat),
-    ACCOUNT(4, "Аккаунт", R.drawable.ic_nav_account)
 }

@@ -57,7 +57,8 @@ fun CatalogScreen() {
                     Spacer(modifier = Modifier.height(8.dp))
                     ShortCutScroller()
                     Spacer(modifier = Modifier.height(32.dp))
-                    CatalogBlock()
+                    CatalogBlock(modifier = Modifier.padding(start = 16.dp, end = 16.dp))
+                    Spacer(modifier = Modifier.height(72.dp))
                 }
             }
         }

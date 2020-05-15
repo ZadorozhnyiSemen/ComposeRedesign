@@ -16,6 +16,8 @@ import com.compose.redesign.scooter.domain.Category
 import com.compose.redesign.scooter.domain.CategoryItem
 import com.compose.redesign.scooter.domain.ShortCutItem
 import com.compose.redesign.scooter.styles.*
+import com.compose.redesign.scooter.ui.Screen
+import com.compose.redesign.scooter.ui.navigateTo
 
 @Composable
 fun ShortCutScroller() {
@@ -67,8 +69,8 @@ fun ShortCut(item: ShortCutItem) {
 }
 
 @Composable
-fun CatalogBlock() {
-    Column {
+fun CatalogBlock(modifier: Modifier) {
+    Column(modifier = modifier) {
         categories.forEach {
             SubCatalog(it)
             Spacer(modifier = Modifier.height(32.dp))
@@ -89,17 +91,21 @@ fun SubCatalog(category: Category) {
 
 @Composable
 fun CategoryDescriptor(category: CategoryItem) {
-    Clickable(onClick = {}) {
+
+    Clickable(onClick = {
+        println("Navigate to category ${category.title}")
+        navigateTo(Screen.Category(category.id))
+    }) {
         Row(
-            modifier = Modifier.preferredHeight(34.dp).ripple(),
+            modifier = Modifier.preferredHeight(34.dp),
             verticalGravity = Alignment.CenterVertically
         ) {
+
             Text(text = category.title, style = textStyleAccent)
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = category.size.toString(), style = textStyleAdditional)
         }
     }
-
 }
 
 val shortCuts = listOf(
