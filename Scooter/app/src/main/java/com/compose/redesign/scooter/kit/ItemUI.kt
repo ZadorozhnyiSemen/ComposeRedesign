@@ -12,6 +12,7 @@ import androidx.ui.material.Card
 import androidx.ui.res.imageResource
 import androidx.ui.text.style.TextOverflow
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.unit.Dp
 import androidx.ui.unit.dp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.domain.PricedItem
@@ -47,16 +48,21 @@ fun RecommendationScroller() {
 }
 
 @Composable
-fun StoreItem(item: PricedItem, showDescription: Boolean = false) {
+fun StoreItem(
+    item: PricedItem,
+    showDescription: Boolean = false,
+    height: Dp = 219.dp,
+    elevation: Dp = 1.dp
+) {
     val image = imageResource(id = item.image)
     Card(
-        modifier = Modifier.width(160.dp).preferredHeight(219.dp),
+        modifier = Modifier.width(160.dp).preferredHeight(height),
         shape = RoundedCornerShape(6.dp),
-        elevation = 0.dp
+        elevation = elevation
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Box(
-                modifier = Modifier.preferredHeight(130.dp),
+                modifier = Modifier.preferredHeight(130.dp).padding(top = 10.dp),
                 gravity = ContentGravity.TopCenter
             ) {
                 Image(
@@ -101,6 +107,10 @@ fun StoreItem(item: PricedItem, showDescription: Boolean = false) {
                                 )
                             }
                         }
+                        if (showDescription) {
+                            Text(text = item.description, style = textStyleAdditionalDark)
+                        }
+
                         Spacer(modifier = Modifier.height(8.dp))
                         Box(
                             modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 12.dp)

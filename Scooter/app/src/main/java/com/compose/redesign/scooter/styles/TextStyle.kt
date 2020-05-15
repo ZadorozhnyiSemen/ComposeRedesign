@@ -53,6 +53,22 @@ val textStyleAccent = TextStyle(
     fontStyle = FontStyle.Normal
 )
 
+val textStyleAccentSmall = TextStyle(
+    color = textAccent,
+    fontFamily = appFontFamily,
+    fontSize = 12.sp,
+    fontWeight = FontWeight.W600,
+    fontStyle = FontStyle.Normal
+)
+
+val textStyleSBSmall = TextStyle(
+    color = colorWhite,
+    fontFamily = appFontFamily,
+    fontSize = 12.sp,
+    fontWeight = FontWeight.W600,
+    fontStyle = FontStyle.Normal
+)
+
 val textStyleAdditionalSmall = TextStyle(
     color = textPrimary,
     fontFamily = appFontFamily,

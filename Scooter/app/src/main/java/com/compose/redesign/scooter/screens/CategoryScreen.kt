@@ -7,9 +7,7 @@ import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.layout.Column
-import androidx.ui.layout.fillMaxHeight
-import androidx.ui.layout.padding
+import androidx.ui.layout.*
 import androidx.ui.material.Scaffold
 import androidx.ui.material.Surface
 import androidx.ui.material.TopAppBar
@@ -18,6 +16,7 @@ import androidx.ui.res.vectorResource
 import androidx.ui.unit.dp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.kit.GridItems
+import com.compose.redesign.scooter.kit.ItemFilter
 import com.compose.redesign.scooter.kit.categories
 import com.compose.redesign.scooter.styles.colorWhite
 import com.compose.redesign.scooter.styles.textStyleSecondaryHeader
@@ -53,7 +52,9 @@ fun CategoryScreen(categoryId: Int) {
                         )
                         Image(modifier = sizeModifier, asset = search)
                     }
-
+                    Spacer(modifier = Modifier.height(12.dp))
+                    ItemFilter()
+                    Spacer(modifier = Modifier.height(8.dp))
                     GridItems(item.items)
                 }
             }
