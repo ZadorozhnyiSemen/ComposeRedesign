@@ -21,6 +21,7 @@ import androidx.ui.unit.sp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.data.AppContainer
 import com.compose.redesign.scooter.data.items.ItemsRepository
+import com.compose.redesign.scooter.screens.CatalogScreen
 import com.compose.redesign.scooter.screens.DummyScreen
 import com.compose.redesign.scooter.screens.MainScreen
 import com.compose.redesign.scooter.styles.*
@@ -42,7 +43,7 @@ private fun AppContent(
         Surface(color = colorBackground) {
             when (screen) {
                 NavigationItem.HOME -> MainScreen()
-                NavigationItem.CATALOG -> DummyScreen(screenName = screen.title)
+                NavigationItem.CATALOG -> CatalogScreen()
                 NavigationItem.CART -> DummyScreen(screenName = screen.title)
                 NavigationItem.CHAT -> DummyScreen(screenName = screen.title)
                 NavigationItem.ACCOUNT -> DummyScreen(screenName = screen.title)

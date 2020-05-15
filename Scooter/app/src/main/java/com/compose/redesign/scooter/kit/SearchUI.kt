@@ -6,7 +6,10 @@ import androidx.ui.core.Modifier
 import androidx.ui.foundation.Icon
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
-import androidx.ui.layout.*
+import androidx.ui.layout.Row
+import androidx.ui.layout.fillMaxWidth
+import androidx.ui.layout.padding
+import androidx.ui.layout.size
 import androidx.ui.material.Card
 import androidx.ui.res.vectorResource
 import androidx.ui.tooling.preview.Preview
@@ -19,9 +22,10 @@ import com.compose.redesign.scooter.styles.textStyleAdditional
 fun SearchBar() {
     val icon = vectorResource(R.drawable.ic_search)
     Card(
-        modifier = Modifier.fillMaxWidth().wrapContentHeight(align = Alignment.CenterVertically)
-            .padding(start = 16.dp, end = 16.dp, top = 16.dp),
-        shape = RoundedCornerShape(6.dp)
+        modifier = Modifier.fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp),
+        shape = RoundedCornerShape(6.dp),
+        elevation = 2.dp
     ) {
         Row(verticalGravity = Alignment.CenterVertically) {
             Icon(

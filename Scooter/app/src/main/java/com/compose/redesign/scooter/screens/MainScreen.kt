@@ -46,10 +46,11 @@ fun MainScreen() {
                     ) {
                         Text(text = "Каталог", style = textStyleHeader)
                     }
+                    Spacer(modifier = Modifier.height(16.dp))
                     SearchBar()
+                    Spacer(modifier = Modifier.height(32.dp))
                     Box(
-                        Modifier.wrapContentSize(Alignment.Center),
-                        paddingStart = 16.dp, paddingTop = 32.dp
+                        Modifier.wrapContentSize(Alignment.Center), paddingStart = 16.dp
                     ) {
                         Text(text = "Рекомендации", style = textStyleAdditional)
                     }
@@ -59,6 +60,7 @@ fun MainScreen() {
                     DateAndAll()
                     Spacer(modifier = Modifier.height(8.dp))
                     SaleScroller()
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
             }
         }
