@@ -3,6 +3,7 @@ package com.compose.redesign.scooter.styles
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontStyle
 import androidx.ui.text.font.FontWeight
+import androidx.ui.text.style.TextAlign
 import androidx.ui.text.style.TextDecoration
 import androidx.ui.unit.sp
 
@@ -11,6 +12,15 @@ val textStyleAdditional = TextStyle(
     fontFamily = appFontFamily,
     fontWeight = FontWeight.W500,
     fontStyle = FontStyle.Normal
+)
+
+val textStyleAdditionalSmallBlack = TextStyle(
+    color = textSecondary_5,
+    fontFamily = appFontFamily,
+    fontSize = 12.sp,
+    fontWeight = FontWeight.W500,
+    fontStyle = FontStyle.Normal,
+    textAlign = TextAlign.Center
 )
 
 val textStyleAdditionalCrossed = TextStyle(
@@ -68,12 +78,22 @@ val textStyleHeader = TextStyle(
     fontStyle = FontStyle.Normal
 )
 
+val textStyleSecondaryHeaderCenter = TextStyle(
+    color = textPrimary,
+    fontFamily = appFontFamily,
+    fontSize = 16.sp,
+    fontWeight = FontWeight.W600,
+    fontStyle = FontStyle.Normal,
+    textAlign = TextAlign.Center
+)
+
 val textStyleSecondaryHeader = TextStyle(
     color = textPrimary,
     fontFamily = appFontFamily,
     fontSize = 16.sp,
     fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
+    fontStyle = FontStyle.Normal,
+    textAlign = TextAlign.Center
 )
 
 val textStyleSecondaryHeaderAccent = TextStyle(

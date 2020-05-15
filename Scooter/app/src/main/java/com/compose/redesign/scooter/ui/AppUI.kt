@@ -28,7 +28,9 @@ import com.compose.redesign.scooter.styles.*
 
 @Composable
 fun ScooterApp(container: AppContainer) {
-    MaterialTheme {
+    MaterialTheme(
+        //colors = lightThemeColors
+    ) {
         AppContent(
             itemsRepository = container.itemsRepository
         )
@@ -58,7 +60,6 @@ private fun AppContent(
                     icon = { Icon(vectorResource(id = item.icon)) },
                     selected = AppStatus.currentScreen.id == index,
                     onSelected = {
-                        //selectedItem = index
                         AppStatus.currentScreen = NavigationItem.values()[index]
                     },
                     text = {

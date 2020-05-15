@@ -134,7 +134,7 @@ fun PromoItem(item: PromotedItem) {
                 Text(
                     modifier = Modifier.weight(1f),
                     text = item.title,
-                    style = textStyleSecondaryHeader,
+                    style = textStyleSecondaryHeaderCenter,
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )

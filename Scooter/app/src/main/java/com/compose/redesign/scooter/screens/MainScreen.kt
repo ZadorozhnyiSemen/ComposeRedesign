@@ -17,13 +17,14 @@ import com.compose.redesign.scooter.kit.DateAndAll
 import com.compose.redesign.scooter.kit.RecommendationScroller
 import com.compose.redesign.scooter.kit.SaleScroller
 import com.compose.redesign.scooter.kit.SearchBar
+import com.compose.redesign.scooter.styles.colorBackground
 import com.compose.redesign.scooter.styles.textStyleAdditional
 import com.compose.redesign.scooter.styles.textStyleHeader
 
 @Composable
 fun MainScreen() {
     Scaffold {
-        Surface(modifier = Modifier.fillMaxSize()) {
+        Surface(modifier = Modifier.fillMaxSize(), color = colorBackground) {
             VerticalScroller {
                 Column {
                     Box(
