@@ -16,7 +16,7 @@ import androidx.ui.unit.dp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.domain.PricedItem
 import com.compose.redesign.scooter.domain.PromotedItem
-import com.compose.redesign.scooter.screens.*
+import com.compose.redesign.scooter.styles.*
 
 @Composable
 @Preview

@@ -7,29 +7,23 @@ import androidx.ui.foundation.Box
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.material.Scaffold
 import androidx.ui.material.Surface
 import androidx.ui.res.vectorResource
-import androidx.ui.text.TextStyle
-import androidx.ui.text.font.FontStyle
-import androidx.ui.text.font.FontWeight
-import androidx.ui.text.font.ResourceFont
-import androidx.ui.text.font.fontFamily
-import androidx.ui.text.style.TextDecoration
 import androidx.ui.unit.dp
-import androidx.ui.unit.sp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.kit.DateAndAll
 import com.compose.redesign.scooter.kit.RecommendationScroller
 import com.compose.redesign.scooter.kit.SaleScroller
 import com.compose.redesign.scooter.kit.SearchBar
+import com.compose.redesign.scooter.styles.textStyleAdditional
+import com.compose.redesign.scooter.styles.textStyleHeader
 
 @Composable
 fun MainScreen() {
     Scaffold {
-        Surface(modifier = Modifier.fillMaxSize(), color = colorBackground) {
+        Surface(modifier = Modifier.fillMaxSize()) {
             VerticalScroller {
                 Column {
                     Box(
@@ -59,95 +53,14 @@ fun MainScreen() {
                     ) {
                         Text(text = "Рекомендации", style = textStyleAdditional)
                     }
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
                     RecommendationScroller()
                     Spacer(modifier = Modifier.height(32.dp))
                     DateAndAll()
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
                     SaleScroller()
                 }
             }
         }
     }
 }
-
-val colorAccent = Color(1f, 0.275f, 0.443f)
-val colorBackground = Color(0.961f, 0.961f, 0.961f)
-val colorWhite = Color(1f, 1f, 1f)
-val textPrimary = Color(0f, 0f, 0f)
-val textSecondary = Color(0f, 0f, 0f, .5f)
-val textSecondaryWithOpacity = Color(0f, 0f, 0f, .3f)
-val textAccent = colorAccent
-
-val appFontFamily = fontFamily(fonts = listOf(ResourceFont(R.font.montserrat)))
-
-val textStyleAdditional = TextStyle(
-    color = textSecondary,
-    fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalCrossed = TextStyle(
-    color = textSecondary,
-    fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal,
-    textDecoration = TextDecoration.LineThrough
-)
-
-val textStyleAdditionalLight = TextStyle(
-    color = textSecondaryWithOpacity,
-    fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAccent = TextStyle(
-    color = textAccent,
-    fontFamily = appFontFamily,
-    fontSize = 14.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalSmall = TextStyle(
-    color = textPrimary,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalSmallWhite = TextStyle(
-    color = colorWhite,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal,
-    letterSpacing = 1.sp
-)
-
-val textStyleHeader = TextStyle(
-    color = textPrimary,
-    fontFamily = appFontFamily,
-    fontSize = 24.sp,
-    fontWeight = FontWeight.W700,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleSecondaryHeader = TextStyle(
-    color = textPrimary,
-    fontFamily = appFontFamily,
-    fontSize = 16.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleSecondaryHeaderAccent = TextStyle(
-    color = textAccent,
-    fontFamily = appFontFamily,
-    fontSize = 16.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
-)
