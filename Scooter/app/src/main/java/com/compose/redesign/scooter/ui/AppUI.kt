@@ -5,15 +5,9 @@ import androidx.ui.core.Modifier
 import androidx.ui.foundation.Icon
 import androidx.ui.foundation.Text
 import androidx.ui.layout.Column
-import androidx.ui.material.BottomNavigation
-import androidx.ui.material.BottomNavigationItem
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.Surface
+import androidx.ui.material.*
 import androidx.ui.res.vectorResource
-import androidx.ui.text.TextStyle
-import androidx.ui.text.font.FontStyle
-import androidx.ui.text.font.FontWeight
-import androidx.ui.unit.sp
+import androidx.ui.text.style.TextOverflow
 import com.compose.redesign.scooter.data.AppContainer
 import com.compose.redesign.scooter.data.items.ItemsRepository
 import com.compose.redesign.scooter.screens.CatalogScreen
@@ -25,7 +19,9 @@ import com.compose.redesign.scooter.styles.*
 @Composable
 fun ScooterApp(container: AppContainer) {
     MaterialTheme(
-        //colors = lightThemeColors
+        typography = Typography(
+
+        )
     ) {
         AppContent(
             itemsRepository = container.itemsRepository
@@ -60,12 +56,8 @@ private fun AppContent(
                     text = {
                         Text(
                             text = item.title,
-                            style = TextStyle(
-                                fontSize = 11.sp,
-                                fontFamily = appFontFamily,
-                                fontWeight = FontWeight.W600,
-                                fontStyle = FontStyle.Normal
-                            )
+                            overflow = TextOverflow.Ellipsis,
+                            style = typographyCaptionNavbar(colorAccent)
                         )
                     },
                     alwaysShowLabels = false,

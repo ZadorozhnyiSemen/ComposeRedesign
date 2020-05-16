@@ -1,5 +1,6 @@
 package com.compose.redesign.scooter.styles
 
+import androidx.ui.graphics.Color
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontStyle
 import androidx.ui.text.font.FontWeight
@@ -7,114 +8,114 @@ import androidx.ui.text.style.TextAlign
 import androidx.ui.text.style.TextDecoration
 import androidx.ui.unit.sp
 
-val textStyleAdditional = TextStyle(
-    color = textSecondary_5,
+fun typographyH1(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
     fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalSmallBlack = TextStyle(
-    color = textSecondary_5,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal,
-    textAlign = TextAlign.Center
-)
-
-val textStyleAdditionalCrossed = TextStyle(
-    color = textSecondary_5,
-    fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal,
-    textDecoration = TextDecoration.LineThrough
-)
-
-val textStyleAdditionalDark = TextStyle(
-    color = textSecondary_9,
-    fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalLight = TextStyle(
-    color = textSecondary_3,
-    fontFamily = appFontFamily,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAccent = TextStyle(
-    color = textAccent,
-    fontFamily = appFontFamily,
-    fontSize = 14.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAccentSmall = TextStyle(
-    color = textAccent,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleSBSmall = TextStyle(
-    color = colorWhite,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalSmall = TextStyle(
-    color = textPrimary,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal
-)
-
-val textStyleAdditionalSmallWhite = TextStyle(
-    color = colorWhite,
-    fontFamily = appFontFamily,
-    fontSize = 12.sp,
-    fontWeight = FontWeight.W500,
-    fontStyle = FontStyle.Normal,
-    letterSpacing = 1.sp
-)
-
-val textStyleHeader = TextStyle(
-    color = textPrimary,
-    fontFamily = appFontFamily,
-    fontSize = 24.sp,
     fontWeight = FontWeight.W700,
-    fontStyle = FontStyle.Normal
+    fontStyle = FontStyle.Normal,
+    fontSize = 24.sp
 )
 
-val textStyleSecondaryHeaderCenter = TextStyle(
-    color = textPrimary,
+fun typographyH2(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null,
+    align: TextAlign? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
     fontFamily = appFontFamily,
-    fontSize = 16.sp,
     fontWeight = FontWeight.W600,
     fontStyle = FontStyle.Normal,
-    textAlign = TextAlign.Center
+    fontSize = 16.sp,
+    textAlign = align
 )
 
-val textStyleSecondaryHeader = TextStyle(
-    color = textPrimary,
+fun typographyH3(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
     fontFamily = appFontFamily,
-    fontSize = 16.sp,
-    fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
+    fontWeight = FontWeight.W500,
+    fontStyle = FontStyle.Normal,
+    fontSize = 14.sp
 )
 
-val textStyleSecondaryHeaderAccent = TextStyle(
-    color = textAccent,
+fun typographyText(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
     fontFamily = appFontFamily,
-    fontSize = 16.sp,
+    fontWeight = FontWeight.W500,
+    fontStyle = FontStyle.Normal,
+    fontSize = 14.sp
+)
+
+fun typographyLinks(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
+    fontFamily = appFontFamily,
     fontWeight = FontWeight.W600,
-    fontStyle = FontStyle.Normal
+    fontStyle = FontStyle.Normal,
+    fontSize = 14.sp
+)
+
+fun typographyCaptionSemi(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
+    fontFamily = appFontFamily,
+    fontWeight = FontWeight.W600,
+    fontStyle = FontStyle.Normal,
+    fontSize = 12.sp
+)
+
+fun typographyCaptionMedium(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
+    fontFamily = appFontFamily,
+    fontWeight = FontWeight.W500,
+    fontStyle = FontStyle.Normal,
+    fontSize = 12.sp
+)
+
+fun typographyCaptionRegular(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null,
+    align: TextAlign? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
+    fontFamily = appFontFamily,
+    fontWeight = FontWeight.W400,
+    fontStyle = FontStyle.Normal,
+    fontSize = 12.sp,
+    textAlign = align
+)
+
+fun typographyCaptionNavbar(
+    color: Color = Color.Black,
+    decoration: TextDecoration? = null
+) = TextStyle(
+    color = color,
+    textDecoration = decoration,
+    fontFamily = appFontFamily,
+    fontWeight = FontWeight.W600,
+    fontStyle = FontStyle.Normal,
+    fontSize = 9.sp
 )

@@ -10,6 +10,7 @@ import androidx.ui.layout.*
 import androidx.ui.material.Card
 import androidx.ui.material.ripple.ripple
 import androidx.ui.res.vectorResource
+import androidx.ui.text.style.TextAlign
 import androidx.ui.unit.dp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.domain.Category
@@ -58,12 +59,15 @@ fun ShortCut(item: ShortCutItem) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = item.title,
-                    style = textStyleSecondaryHeaderCenter
+                    style = typographyH2(color = textSecondary_9, align = TextAlign.Center)
                 )
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = item.subtitle,
-                    style = textStyleAdditionalSmallBlack
+                    style = typographyCaptionRegular(
+                        color = textSecondary_5,
+                        align = TextAlign.Center
+                    )
                 )
             }
         }
@@ -83,7 +87,7 @@ fun CatalogBlock(modifier: Modifier) {
 @Composable
 fun SubCatalog(category: Category) {
     Column {
-        Text(text = category.title, style = textStyleSecondaryHeader)
+        Text(text = category.title, style = typographyH2(textSecondary_9))
         Spacer(modifier = Modifier.height(8.dp))
         category.items.forEach {
             CategoryDescriptor(category = it)
@@ -103,9 +107,9 @@ fun CategoryDescriptor(category: CategoryItem) {
             verticalGravity = Alignment.CenterVertically
         ) {
 
-            Text(text = category.title, style = textStyleAccent)
+            Text(text = category.title, style = typographyLinks(colorAccent))
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = category.size.toString(), style = textStyleAdditional)
+            Text(text = category.size.toString(), style = typographyText(textSecondary_5))
         }
     }
 }

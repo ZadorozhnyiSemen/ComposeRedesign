@@ -17,8 +17,7 @@ import androidx.ui.unit.dp
 import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.styles.colorAccent
 import com.compose.redesign.scooter.styles.colorWhite
-import com.compose.redesign.scooter.styles.textStyleAccentSmall
-import com.compose.redesign.scooter.styles.textStyleSBSmall
+import com.compose.redesign.scooter.styles.typographyCaptionSemi
 
 @Composable
 @Preview
@@ -53,9 +52,9 @@ fun Chip(
         shape = RoundedCornerShape(100.dp)
     ) {
         val style = if (active) {
-            textStyleSBSmall
+            typographyCaptionSemi(colorWhite)
         } else {
-            textStyleAccentSmall
+            typographyCaptionSemi(colorAccent)
         }
         Text(
             modifier = Modifier.padding(

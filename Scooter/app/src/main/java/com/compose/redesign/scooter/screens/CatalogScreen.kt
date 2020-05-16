@@ -16,9 +16,7 @@ import com.compose.redesign.scooter.R
 import com.compose.redesign.scooter.kit.CatalogBlock
 import com.compose.redesign.scooter.kit.SearchBar
 import com.compose.redesign.scooter.kit.ShortCutScroller
-import com.compose.redesign.scooter.styles.colorBackground
-import com.compose.redesign.scooter.styles.textStyleAdditional
-import com.compose.redesign.scooter.styles.textStyleHeader
+import com.compose.redesign.scooter.styles.*
 
 @Composable
 fun CatalogScreen() {
@@ -35,7 +33,10 @@ fun CatalogScreen() {
                     ) {
                         Row {
                             val dropdownIcon = vectorResource(id = R.drawable.ic_drop_down)
-                            Text(text = "Невский проспект, 3 / 1", style = textStyleAdditional)
+                            Text(
+                                text = "Невский проспект, 3 / 1",
+                                style = typographyText(textSecondary_5)
+                            )
                             Spacer(modifier = Modifier.width(8.dp))
                             Image(modifier = Modifier.size(24.dp), asset = dropdownIcon)
                         }
@@ -44,7 +45,7 @@ fun CatalogScreen() {
                         Modifier.wrapContentSize(Alignment.Center),
                         paddingStart = 16.dp
                     ) {
-                        Text(text = "Каталог", style = textStyleHeader)
+                        Text(text = "Каталог", style = typographyH1(textSecondary_9))
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     SearchBar()
@@ -52,7 +53,7 @@ fun CatalogScreen() {
                     Box(
                         Modifier.wrapContentSize(Alignment.Center), paddingStart = 16.dp
                     ) {
-                        Text(text = "Списки товаров", style = textStyleAdditional)
+                        Text(text = "Списки товаров", style = typographyText(textSecondary_5))
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     ShortCutScroller()

@@ -15,7 +15,8 @@ import androidx.ui.res.vectorResource
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 import com.compose.redesign.scooter.R
-import com.compose.redesign.scooter.styles.textStyleAdditional
+import com.compose.redesign.scooter.styles.textSecondary_3
+import com.compose.redesign.scooter.styles.typographyText
 
 @Composable
 @Preview
@@ -39,7 +40,7 @@ fun SearchBar() {
             Text(
                 modifier = Modifier.weight(weight = 1f),
                 text = "Поиск товаров",
-                style = textStyleAdditional
+                style = typographyText(textSecondary_3)
             )
         }
     }

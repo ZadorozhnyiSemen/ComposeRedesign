@@ -10,6 +10,7 @@ import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.material.Card
 import androidx.ui.res.imageResource
+import androidx.ui.text.style.TextDecoration
 import androidx.ui.text.style.TextOverflow
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.Dp
@@ -84,7 +85,7 @@ fun StoreItem(
                             ) {
                                 Text(
                                     text = String.format("%+.0f%%", item.saleValue * 100),
-                                    style = textStyleAdditionalSmallWhite
+                                    style = typographyCaptionMedium(colorWhite)
                                 )
                             }
                         } else {
@@ -94,7 +95,11 @@ fun StoreItem(
                         Spacer(modifier = Modifier.height(8.dp))
                         Row(verticalGravity = Alignment.Bottom) {
                             val priceStyle =
-                                if (item.onSale) textStyleSecondaryHeaderAccent else textStyleSecondaryHeader
+                                if (item.onSale) {
+                                    typographyH2(textAccent)
+                                } else {
+                                    typographyH2(textSecondary_9)
+                                }
                             Text(
                                 text = String.format("%.0fр", item.price),
                                 style = priceStyle
@@ -103,12 +108,15 @@ fun StoreItem(
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = String.format("%.0fр", item.itemPrice),
-                                    style = textStyleAdditionalCrossed
+                                    style = typographyCaptionMedium(
+                                        textSecondary_5,
+                                        TextDecoration.LineThrough
+                                    )
                                 )
                             }
                         }
                         if (showDescription) {
-                            Text(text = item.description, style = textStyleAdditionalDark)
+                            Text(text = item.description, style = typographyH3(textSecondary_9))
                         }
 
                         Spacer(modifier = Modifier.height(8.dp))
@@ -119,7 +127,7 @@ fun StoreItem(
                             border = Border(1.dp, colorAccent),
                             gravity = ContentGravity.Center
                         ) {
-                            Text("В корзину", style = textStyleAccent)
+                            Text("В корзину", style = typographyLinks(color = colorAccent))
                         }
                     }
                 }
@@ -154,7 +162,7 @@ fun PromoItem(item: PromotedItem) {
                 Text(
                     modifier = Modifier.weight(1f),
                     text = item.title,
-                    style = textStyleSecondaryHeaderCenter,
+                    style = typographyH2(textSecondary_9),
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -169,7 +177,7 @@ fun PromoItem(item: PromotedItem) {
                             start = 8.dp,
                             end = 8.dp
                         ),
-                        text = item.category, style = textStyleAdditionalSmall
+                        text = item.category, style = typographyCaptionMedium(textSecondary_9)
                     )
                 }
             }

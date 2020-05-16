@@ -21,7 +21,8 @@ import com.compose.redesign.scooter.kit.GridItems
 import com.compose.redesign.scooter.kit.ItemFilter
 import com.compose.redesign.scooter.kit.categories
 import com.compose.redesign.scooter.styles.colorWhite
-import com.compose.redesign.scooter.styles.textStyleSecondaryHeader
+import com.compose.redesign.scooter.styles.textSecondary_9
+import com.compose.redesign.scooter.styles.typographyH2
 import com.compose.redesign.scooter.ui.Screen
 import com.compose.redesign.scooter.ui.navigateTo
 
@@ -50,7 +51,7 @@ fun CategoryScreen(categoryId: Int) {
                     Text(
                         modifier = sizeModifier,
                         text = item.title,
-                        style = textStyleSecondaryHeader
+                        style = typographyH2(textSecondary_9)
                     )
                     Image(modifier = sizeModifier, asset = search)
                 }
